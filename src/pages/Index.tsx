@@ -60,13 +60,21 @@ const Index = () => {
         
         {/* AI Mental Health Advantages Section */}
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-4xl font-bold mb-8 text-center">Why AI Mental Health Support Matters</h2>
+          <h2 className="text-4xl font-bold mb-8 text-center animate-fade-in">Why AI Mental Health Support Matters</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {advantages.map((item, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+              <Card 
+                key={index} 
+                className="p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
+                style={{ 
+                  animationDelay: `${index * 100}ms`,
+                  animation: 'fade-in-up 0.6s ease-out forwards',
+                  opacity: 0 
+                }}
+              >
                 <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary" />
+                  <ArrowRight className="h-5 w-5 text-primary animate-bounce" />
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground">{item.description}</p>
@@ -74,17 +82,20 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="bg-muted p-6 rounded-lg mt-8">
+          <div 
+            className="bg-muted p-6 rounded-lg mt-8 transform transition-all duration-500 hover:scale-[1.01]"
+            style={{ animation: 'fade-in-up 0.8s ease-out forwards' }}
+          >
             <div className="flex items-center gap-2 mb-4">
-              <AlertTriangle className="h-6 w-6 text-yellow-500" />
+              <AlertTriangle className="h-6 w-6 text-yellow-500 animate-pulse" />
               <h2 className="text-2xl font-semibold">Important Note</h2>
             </div>
             <p className="text-muted-foreground mb-4">While AI mental health support is powerful, it cannot replace:</p>
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Professional diagnosis of mental illness</li>
-              <li>Prescription of medication</li>
-              <li>Crisis intervention (suicidal thoughts, severe depression, psychosis)</li>
-              <li>Deep trauma work or complex disorders</li>
+              <li className="transform transition-all duration-300 hover:translate-x-2">Professional diagnosis of mental illness</li>
+              <li className="transform transition-all duration-300 hover:translate-x-2">Prescription of medication</li>
+              <li className="transform transition-all duration-300 hover:translate-x-2">Crisis intervention (suicidal thoughts, severe depression, psychosis)</li>
+              <li className="transform transition-all duration-300 hover:translate-x-2">Deep trauma work or complex disorders</li>
             </ul>
           </div>
         </section>

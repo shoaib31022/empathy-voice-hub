@@ -1,6 +1,28 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
+interface SpeechRecognition {
+  continuous: boolean;
+  interimResults: boolean;
+  start: () => void;
+  stop: () => void;
+  onresult: (event: any) => void;
+  onerror: (event: any) => void;
+  onend: () => void;
+}
+
+interface Window {
+  SpeechRecognition: new () => SpeechRecognition;
+  webkitSpeechRecognition: new () => SpeechRecognition;
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition: new () => SpeechRecognition;
+    webkitSpeechRecognition: new () => SpeechRecognition;
+  }
+}
+
 interface SpeechRecognitionHook {
   transcript: string;
   isListening: boolean;
@@ -82,3 +104,4 @@ const useSpeechRecognition = (): SpeechRecognitionHook => {
 };
 
 export default useSpeechRecognition;
+

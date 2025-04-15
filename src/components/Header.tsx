@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // For a real app, you'd implement proper dark mode toggle
@@ -20,14 +21,19 @@ const Header = () => {
   return (
     <header className="w-full py-4 px-4 md:px-8 border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-empathy-400 to-lavender-500 flex items-center justify-center animate-pulse-gentle">
             <span className="sr-only">Empathy Voice Hub</span>
           </div>
           <span className="font-medium text-lg text-foreground">EmpathyVoice</span>
-        </div>
+        </Link>
         
         <div className="flex items-center space-x-4">
+          <Link to="/pricing">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              Pricing
+            </Button>
+          </Link>
           <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             About
           </Button>
@@ -44,3 +50,4 @@ const Header = () => {
 };
 
 export default Header;
+

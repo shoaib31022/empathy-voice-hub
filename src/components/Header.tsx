@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -29,6 +29,12 @@ const Header = () => {
         </Link>
         
         <div className="flex items-center space-x-4">
+          <Link to="/blog">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              <BookOpen className="h-5 w-5 mr-2" />
+              Blog
+            </Button>
+          </Link>
           <Link to="/pricing">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               Pricing
@@ -50,4 +56,3 @@ const Header = () => {
 };
 
 export default Header;
-
